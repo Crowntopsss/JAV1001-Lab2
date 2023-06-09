@@ -14,15 +14,18 @@ fun main() {
     val encryptedMessage = encrypt(message, shift)
     println("Encrypted message: $encryptedMessage")
 
-
-    val numbers = arrayOf(2, 4, 6, 8, 10)
-    val average = arrayAvg(numbers)
+    val numbers1 = arrayOf(2, 4, 6, 8, 10)
+    val average = arrayAvg(numbers1)
     println("Average: $average")
 
-    val numbers = arrayOf(2, 4, 6, 8, 10)
+    val numbers2 = arrayOf(2, 4, 6, 8, 10)
     val searchValue = 6
-    val containsValue = arrayContains(numbers, searchValue)
+    val containsValue = arrayContains(numbers2, searchValue)
     println("Contains value: $containsValue")
+
+    val numbers3 = arrayOf(1, 2, 3, 4, 5)
+    val reversedArray = reverse(numbers3)
+    println("Reversed array: ${reversedArray.contentToString()}")
 }
 
 fun encrypt(message: String, shift: Int): String {
@@ -73,6 +76,27 @@ fun arrayContains(array: Array<Int>, searchValue: Int): Boolean {
         }
     }
     return false
+}
+
+fun reverse(array: Array<Int>): Array<Int> {
+    // Create a new array with the same size as the original array
+    val reversed = Array(array.size) { 0 } 
+    var startIndex = 0
+    var endIndex = array.size - 1
+
+    while (startIndex <= endIndex) {
+        // Store the value at the start index in a temporary variable
+        val temp = array[startIndex]
+        // Assign the value at the end index to the start index of the reversed array
+        reversed[startIndex] = array[endIndex] 
+        // Assign the value from the temporary variable to the end index of the reversed array
+        reversed[endIndex] = temp 
+
+        startIndex++ 
+        endIndex--
+    }
+
+    return reversed
 }
 
 
