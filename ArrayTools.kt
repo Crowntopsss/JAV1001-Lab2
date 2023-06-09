@@ -7,8 +7,6 @@
 // Check array containment
 // Reverse an array
 
-
-
 fun encrypt(message: String, shift: Int): String {
     // List to store the encrypted characters
     val encryptedChars = mutableListOf<Char>() 
@@ -36,5 +34,14 @@ fun encryptChar(char: Char, shift: Int): Char {
     val normalizedShift = shift % 26 
     val encryptedCharCode = (char.toInt() - base.toInt() + normalizedShift) % 26 + base.toInt()
     return encryptedCharCode.toChar()
+}
+
+fun arrayAvg(numbers: Array<Int>): Double {
+    // Calculate and return the average by dividing the sum by the size of the array
+    var sum = 0 
+    for (number in numbers) {
+        sum += number
+    }
+    return sum.toDouble() / numbers.size 
 }
 
