@@ -13,12 +13,45 @@ fun main() {
     println("Available functions:")
     println("1. Encrypt a string")
     println("2. Calculate array average")
-    println("3. Check array containment")
+    println("3. Check if an array contains a value")
     println("4. Reverse an array")
     println()
 
     print("Enter the action number to perform: ")
-    
+    val action = readLine()?.toIntOrNull()
+
+    when (action) {
+        1 -> {
+            println("Enter the string to encrypt:")
+            val message = readLine() ?: ""
+            println("Enter the shift value:")
+            val shift = readLine()?.toIntOrNull() ?: 0
+
+            val encryptedMessage = arrayTools.encrypt(message, shift)
+            println("Encrypted message: $encryptedMessage")
+        }
+        2 -> {
+            val numbers = arrayTools.collectNumbersArray()
+            val average = arrayTools.arrayAvg(numbers)
+            println("Average: $average")
+        }
+        3 -> {
+            val numbers = arrayTools.collectNumbersArray()
+            print("Enter the value you want to search for")
+            val action = readLine()?.toIntOrNull() ?: 0
+            val searchValue = action
+            val containsValue = arrayTools.arrayContains(numbers, searchValue)
+            println("Contains value: $containsValue")
+        }
+        4 -> {
+            val numbers = arrayTools.collectNumbersArray()
+            val reversedArray = arrayTools.reverse(numbers)
+            println("Reversed array: ${reversedArray.contentToString()}")
+        }
+        else -> {
+            println("Invalid action number. Please try again.")
+        }
+    }
 }
 
 
@@ -92,6 +125,12 @@ class ArrayTools {
         }
 
         return reversed
+    }
+
+    fun collectNumbersArray(): Array<Int> {
+        println("Enter the numbers separated by spaces:")
+        val input = readLine()
+        return input?.split(" ")?.mapNotNull { it.toIntOrNull() }?.toTypedArray() ?: emptyArray()
     }
 }
 
