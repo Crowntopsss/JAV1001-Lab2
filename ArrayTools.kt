@@ -7,6 +7,19 @@
 // Check array containment
 // Reverse an array
 
+fun main() {
+    val message = "Hello, World!"
+    val shift = 3
+
+    val encryptedMessage = encrypt(message, shift)
+    println("Encrypted message: $encryptedMessage")
+
+
+    val numbers = arrayOf(2, 4, 6, 8, 10)
+    val average = arrayAvg(numbers)
+    println("Average: $average")
+}
+
 fun encrypt(message: String, shift: Int): String {
     // List to store the encrypted characters
     val encryptedChars = mutableListOf<Char>() 
