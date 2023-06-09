@@ -18,6 +18,11 @@ fun main() {
     val numbers = arrayOf(2, 4, 6, 8, 10)
     val average = arrayAvg(numbers)
     println("Average: $average")
+
+    val numbers = arrayOf(2, 4, 6, 8, 10)
+    val searchValue = 6
+    val containsValue = arrayContains(numbers, searchValue)
+    println("Contains value: $containsValue")
 }
 
 fun encrypt(message: String, shift: Int): String {
@@ -57,4 +62,17 @@ fun arrayAvg(numbers: Array<Int>): Double {
     }
     return sum.toDouble() / numbers.size 
 }
+
+fun arrayContains(array: Array<Int>, searchValue: Int): Boolean {
+    // Iterate over each element in the array
+    // Check if the element matches the search value
+    // Return true if a match is found
+    for (element in array) { 
+        if (element == searchValue) { 
+            return true 
+        }
+    }
+    return false
+}
+
 
